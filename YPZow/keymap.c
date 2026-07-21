@@ -8,6 +8,7 @@
 
 enum custom_keycodes {
   RGB_SLD = ZSA_SAFE_RANGE,
+  OS_LAYOUT,
 };
 
 
@@ -37,7 +38,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_NO,          LSFT(KC_TAB),   KC_MINUS,       KC_HASH,        KC_EQUAL,       KC_PLUS,                                        RU_COLN,        RU_COMM,        KC_ASTR,        KC_NO,          LSFT(KC_ENTER), KC_NO,          
     KC_NO,          KC_ESCAPE,      KC_UNDS,        KC_LBRC,        KC_RBRC,        DUAL_FUNC_0,                                    DUAL_FUNC_2,    DUAL_FUNC_3,    KC_RPRN,        KC_COLN,        KC_ENTER,       LSFT(KC_INSERT),
     KC_NO,          KC_TAB,         KC_CIRC,        KC_LABK,        DUAL_FUNC_1,    KC_PIPE,                                        KC_AMPR,        DUAL_FUNC_4,    KC_RCBR,        KC_NO,          KC_DELETE,      KC_NO,          
-                                                    TO(0),          KC_TRANSPARENT,                                 LALT(KC_LEFT_SHIFT),KC_TRANSPARENT
+                                                    TO(0),          KC_TRANSPARENT,                                 OS_LAYOUT,      KC_TRANSPARENT
   ),
   [2] = LAYOUT_voyager(
     TO(4),          RGB_MODE_FORWARD,RGB_TOG,        RGB_VAD,        RGB_VAI,        TOGGLE_LAYER_COLOR,                                RGB_HUD,        KC_MEDIA_PLAY_PAUSE,KC_MEDIA_PREV_TRACK,KC_MEDIA_NEXT_TRACK,RGB_HUI,        QK_BOOT,        
@@ -361,6 +362,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
           unregister_code16(LSFT(KC_TAB));
         }  
       }  
+      return false;
+    case OS_LAYOUT:
+      if (record->event.pressed) {
+        tap_code16(LALT(KC_LEFT_SHIFT));
+      } else {
+        clear_oneshot_layer_state(ONESHOT_OTHER_KEY_PRESSED);
+        layer_move(0);
+      }
       return false;
     case RGB_SLD:
       if (record->event.pressed) {
