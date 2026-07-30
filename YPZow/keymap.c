@@ -16,13 +16,13 @@ enum tap_dance_codes {
   DANCE_0,
 };
 
-#define DUAL_FUNC_0 LT(13, KC_P)
-#define DUAL_FUNC_1 LT(4, KC_C)
-#define DUAL_FUNC_2 LT(2, KC_F5)
-#define DUAL_FUNC_3 LT(12, KC_T)
-#define DUAL_FUNC_4 LT(15, KC_F10)
-#define DUAL_FUNC_5 LT(13, KC_F20)
-#define DUAL_FUNC_6 LT(13, KC_L)
+#define DUAL_FUNC_0 LT(5, KC_A)
+#define DUAL_FUNC_1 LT(13, KC_3)
+#define DUAL_FUNC_2 LT(14, KC_L)
+#define DUAL_FUNC_3 LT(5, KC_F24)
+#define DUAL_FUNC_4 LT(14, KC_R)
+#define DUAL_FUNC_5 LT(6, KC_8)
+#define DUAL_FUNC_6 LT(11, KC_7)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [0] = LAYOUT_voyager(
@@ -63,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [5] = LAYOUT_voyager(
     KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,                                          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          KC_NO,          
     KC_NO,          LSFT(KC_TAB),   KC_F7,          KC_F8,          KC_F9,          KC_NO,                                          KC_KP_COMMA,    KC_7,           KC_8,           KC_9,           KC_KP_PLUS,     KC_KP_MINUS,    
-    KC_NO,          KC_ESCAPE,      MT(MOD_LCTL, KC_F1),MT(MOD_LSFT, KC_F2),MT(MOD_RGUI, KC_F3),KC_F10,                                         KC_0,           MT(MOD_LGUI, KC_1),MT(MOD_RSFT, KC_2),MT(MOD_RCTL, KC_3),KC_ENTER,       KC_KP_EQUAL,    
+    KC_NO,          KC_ESCAPE,      MT(MOD_LCTL, KC_F3),MT(MOD_LSFT, KC_F2),MT(MOD_RGUI, KC_F1),KC_F10,                                         KC_0,           MT(MOD_LGUI, KC_1),MT(MOD_RSFT, KC_2),MT(MOD_RCTL, KC_3),KC_ENTER,       KC_KP_EQUAL,    
     KC_NO,          KC_TAB,         KC_F4,          KC_F5,          KC_F6,          KC_NO,                                          KC_KP_DOT,      KC_4,           KC_5,           KC_6,           KC_KP_ASTERISK, KC_KP_SLASH,    
                                                     KC_TRANSPARENT, KC_TRANSPARENT,                                 KC_NUM,         KC_BSPC
   ),
